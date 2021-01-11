@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: serviceregistry
+
+server:
+  port: ${APPLICATION_HOST_PORT:8080}
+
+eureka:
+  dashboard:
+    path: /registry
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    appname: ${spring.application.name}
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    leaseRenewalIntervalInSeconds: 3
+    leaseExpirationDurationInSeconds: 5
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

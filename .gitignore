@@ -88,3 +88,4 @@ fabric.properties
 /.idea/
 /it.labtech.cloud.iml
 /configserver/configserver.iml
+/serviceregistry/serviceregistry.iml
