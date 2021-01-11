@@ -1,0 +1,1 @@
+package it.labtech.cloud.configserver;

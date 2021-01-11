@@ -1,0 +1,29 @@
+logging:
+  level:
+    root: info
+    org.springframework.cloud.config.server: info
+
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${CONFIG_SERVER_GIT_REPO_URI}
+          clone-on-start: true
+
+server:
+  port: ${APPLICATION_HOST_PORT:8080}
+  servlet:
+    contextPath: /configserver
+
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "info,health,metrics,mappings"
