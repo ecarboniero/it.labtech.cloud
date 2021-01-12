@@ -1,0 +1,37 @@
+logging:
+  level:
+    root: info
+    org.springframework.cloud.config.server: info
+
+spring:
+  webflux:
+    base-path: /apilabtech
+  application:
+    name: apigateway
+    cloud:
+      loadbalancer:
+        ribbon:
+          enabled: false
+  cloud:
+    gateway:
+      metrics:
+        enabled: true
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+
+server:
+  port: ${APPLICATION_HOST_PORT:8080}
+
+management:
+  endpoint:
+    gateway:
+      enabled: true
+    health:
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "info,health,metrics,mappings,gateway"

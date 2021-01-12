@@ -10,6 +10,7 @@
     <modules>
         <module>configserver</module>
         <module>serviceregistry</module>
+        <module>apigateway</module>
     </modules>
     <packaging>pom</packaging>
     <name>cloud</name>

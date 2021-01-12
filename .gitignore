@@ -89,3 +89,4 @@ fabric.properties
 /it.labtech.cloud.iml
 /configserver/configserver.iml
 /serviceregistry/serviceregistry.iml
+/apigateway/apigateway.iml
