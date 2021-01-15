@@ -4,3 +4,10 @@ spring:
 
 server:
   port: ${APPLICATION_HOST_PORT:8080}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: eureka
+    import: optional:configserver:${CONFIGSERVER_URL}

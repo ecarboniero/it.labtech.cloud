@@ -35,3 +35,28 @@ management:
     web:
       exposure:
         include: "info,health,metrics,mappings,gateway"
+
+---
+spring:
+  config:
+    import: optional:configserver:${CONFIGSERVER_URL}
+    activate:
+      on-profile: eureka
+  autoconfigure:
+    exclude:
+      # Exclusion for kubernetes
+      - org.springframework.cloud.kubernetes.discovery.reactive.KubernetesReactiveDiscoveryClientAutoConfiguration
+      - org.springframework.cloud.kubernetes.discovery.KubernetesDiscoveryClientAutoConfiguration
+      - org.springframework.cloud.kubernetes.discovery.KubernetesCatalogWatchAutoConfiguration
+
+---
+spring:
+  config:
+    activate:
+      on-profile: kubernetes
+  autoconfigure:
+    exclude:
+      # Exclusion for Eureka client
+      - org.springframework.cloud.netflix.eureka.reactive.EurekaReactiveDiscoveryClientConfiguration
+      - org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration
+      - org.springframework.cloud.netflix.eureka.EurekaDiscoveryClientConfiguration
