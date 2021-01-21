@@ -2,6 +2,8 @@ logging:
   level:
     root: info
     org.springframework.cloud.config.server: info
+    org.springframework.cloud.gateway: trace
+    it.labtech.cloud.apigateway: info
 
 spring:
   webflux:
@@ -20,6 +22,10 @@ spring:
         locator:
           enabled: true
           lowerCaseServiceId: true
+          predicates:
+            - name: Path
+              args:
+                pattern: "'${spring.webflux.base-path}/'+serviceId+'/**'"
 
 server:
   port: ${APPLICATION_HOST_PORT:8080}
