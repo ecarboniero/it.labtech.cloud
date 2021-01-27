@@ -1,10 +1,10 @@
 # it.labtech.cloud
 
-## configuration server
+### configuration server
 https://cloud.spring.io/spring-cloud-config/reference/html/
 
-## service registry
+### service registry
 https://cloud.spring.io/spring-cloud-netflix/reference/html/
 
-## apigateway
+### apigateway
 https://cloud.spring.io/spring-cloud-gateway/reference/html/
