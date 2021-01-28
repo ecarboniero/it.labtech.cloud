@@ -34,3 +34,12 @@ jobs:
       env:
         DEFAULT_BRANCH: development
         GITHUB_TOKEN: ${{ github.token }}
+        
+    - name: Push to GitHub Packages
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ github.actor }}
+        password: ${{ github.token }}
+        registry: docker.pkg.github.com
+        repository: it.labtech.cloud/cloud
+        tag_with_ref: true        
